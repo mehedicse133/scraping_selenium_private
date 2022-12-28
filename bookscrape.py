@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 import time
-
+import pandas as pd
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
@@ -52,10 +52,10 @@ for match in matches:
     away_team.append(match.find_element(By.XPATH,'./td[4]').text)
 
 print(date)
-# driver.quit()
-# df = pd.DataFrame({'date':date,'home_teams':home_teams,'score':score,'away_team':away_team})
-# df.to_csv('team.csv',index=False)
-# print(df)
+driver.quit()
+df = pd.DataFrame({'date':date,'home_teams':home_teams,'score':score,'away_team':away_team})
+df.to_csv('team.csv',index=False)
+print(df)
 
 
 #   https://www.youtube.com/watch?v=H32uEDpCFLI
