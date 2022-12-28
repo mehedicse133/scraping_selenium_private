@@ -4,9 +4,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 import time
 
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
+driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
-path = "C:\Program Files (x86)\chromedriver.exe"
-driver = webdriver.Chrome(path)
+# path = "C:\Program Files (x86)\chromedriver.exe"
+# driver = webdriver.Chrome(path)
 
 # driver.find_element(By.XPATH, '//button[text()="Some text"]')
 # driver.find_elements(By.XPATH, '//button')
